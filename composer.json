@@ -1,0 +1,17 @@
+{
+    "name": "gabriel/simple-crud",
+    "description": "Um simples crud realizado para o trabalho pratico da materia SIN 320 - Laboratorio de banco de dados em 2019/1",
+    "authors": [
+        {
+            "name": "Gabriel Santos",
+            "email": "gabmaxsan@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Api\\": "api/"
+        }
+    }
+}
