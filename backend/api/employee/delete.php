@@ -19,7 +19,7 @@ if(!isset($_POST) && empty(!$_POST)){
 }
 
 
-$employee = new Employee();;
+$employee = new Employee();
 if($employee->delete($_POST['id'])) {
     http_response_code(200);
     echo json_encode(["message" => "Success"]);

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Trabalho de Lab de Banco</title>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <section class="hero is-link is-highest" id="app">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Sistema SCDZ
+                    </h1>
+                </div>
+                <div class="container">
+                    <table class="table is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>CPF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in data">
+                                <td>{{ item.id }}</td>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.email }}</td>
+                                <td>{{ item.cpf }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+        <script>
+            const API_BASE = "http://localhost:8000/api"
+            new Vue({
+                el: "#app",
+                data: {
+                    data: []
+                },
+                methods: {
+                    getAllEmployees() {
+                        axios.get(`${API_BASE}/employee/all.php`)
+                            .then(resp => resp.data)
+                            .then(data => this.data = data)
+                    }
+                },
+                mounted() {
+                    this.getAllEmployees()
+                }
+            })
+        </script>
+    </body>
+</html>
